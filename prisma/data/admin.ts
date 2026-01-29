@@ -6,3 +6,5 @@ export const admin: Prisma.AdminCreateInput = {
   email: process.env.ADMIN_EMAIL!,
   password: bcrypt.hashSync(process.env.ADMIN_PASSWORD!, 10),
 }
+
+console.log(admin);

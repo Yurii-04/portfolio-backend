@@ -4,8 +4,10 @@ import { admin } from './data/admin';
 const prisma = new PrismaClient();
 
 (async () => {
-  await prisma.admin.create({
-    data: admin,
+  await prisma.admin.upsert({
+    where: { email: process.env.ADMIN_EMAIL! },
+    update: {},
+    create: admin,
   });
   console.log(1);
 })()
